@@ -1,1 +1,898 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="description" content="ScriptForce — Coming soon. We’re building something fast, reliable and modern." /><title>ScriptForce — Coming Soon</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style> :root{ --bg:#ffffff; --text:#0b1220; --muted:#5b667a; --border: rgba(15, 23, 42, .10); --blue-600:#0069ff; --blue-700:#0053cc; --blue-200:#b8d4ff; --blue-50:#f2f7ff; --shadow: 0 10px 30px rgba(11,18,32,.08); --shadow-soft: 0 6px 20px rgba(11,18,32,.06); --radius: 18px; --radius-lg: 28px; --max: 1080px; --nav-h: 74px; } *{ box-sizing:border-box; } html,body{ height:100%; overflow-x: clip; } body{ margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text); background: radial-gradient(900px 600px at 18% -10%, rgba(0,105,255,.18), transparent 60%), radial-gradient(800px 520px at 92% 10%, rgba(0,105,255,.12), transparent 55%), linear-gradient(180deg, #ffffff 0%, #fbfdff 55%, #ffffff 100%); padding-top: var(--nav-h); } a{ color:inherit; text-decoration:none; } a:hover{ text-decoration:underline; text-underline-offset:4px; } .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; } .grid-bg{ position: fixed; inset: 0; pointer-events: none; background-image: linear-gradient(to right, rgba(15,23,42,.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,.06) 1px, transparent 1px); background-size: 54px 54px; mask-image: radial-gradient(circle at 30% 10%, rgba(0,0,0,.9), transparent 62%); opacity: .25; z-index: 0; } .nav{ position: fixed; top:0; left:0; right:0; z-index: 9999; backdrop-filter: blur(10px); background: rgba(255,255,255,.72); border-bottom: 1px solid var(--border); } .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding: 14px 0; gap:14px; min-height: var(--nav-h); } .brand{ display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:-0.02em; white-space: nowrap; } .dot{ width:12px; height:12px; border-radius:999px; background: radial-gradient(circle at 30% 30%, #66a3ff, var(--blue-600)); box-shadow: 0 0 0 4px rgba(0,105,255,.14); } .nav-links{ display:flex; align-items:center; gap:10px; justify-content:flex-end; } .pill{ display:inline-flex; align-items:center; gap:8px; padding:10px 13px; border:1px solid var(--border); border-radius:999px; background: rgba(255,255,255,.80); transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease; font-weight:650; font-size:13.5px; color:#1b2a44; white-space: nowrap; } .pill:hover{ transform: translateY(-1px); box-shadow: var(--shadow-soft); border-color: rgba(0,105,255,.30); text-decoration:none; } .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius: 12px; border: 1px solid rgba(0,105,255,.30); background: linear-gradient(180deg, var(--blue-600), var(--blue-700)); color:white; font-weight:800; letter-spacing:-0.01em; box-shadow: 0 14px 30px rgba(0,105,255,.22); transition: transform .15s ease, box-shadow .2s ease; white-space: nowrap; } .btn:hover{ transform: translateY(-1px); box-shadow: 0 18px 40px rgba(0,105,255,.28); text-decoration:none; } @media (max-width: 720px){ .nav-links .pill{ display:none; } .nav-links .btn{ padding:11px 14px; } } main{ position: relative; z-index: 1; min-height: calc(100vh - var(--nav-h)); display:flex; align-items:center; padding: 56px 0 64px; } .hero{ display:grid; grid-template-columns: 1.15fr .85fr; gap: 22px; align-items: start; } @media (max-width: 920px){ .hero{ grid-template-columns: 1fr; } } .kicker{ display:inline-flex; align-items:center; gap:10px; padding:9px 13px; border-radius:999px; background: rgba(0,105,255,.10); border: 1px solid rgba(0,105,255,.20); color:#0b3d91; font-weight:800; font-size:13.5px; } h1{ margin:16px 0 12px; font-size: clamp(38px, 4.6vw, 64px); letter-spacing:-0.045em; line-height:1.04; } .subtitle{ margin:0; color:var(--muted); font-size: 17px; line-height:1.7; max-width: 62ch; } .actions{ display:flex; gap:12px; flex-wrap: wrap; margin-top: 20px; align-items:center; } .ghost{ display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,.85); font-weight:800; color:#12223f; box-shadow: none; transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease; } .ghost:hover{ transform: translateY(-1px); box-shadow: var(--shadow-soft); border-color: rgba(0,105,255,.30); text-decoration:none; } .card{ background: rgba(255,255,255,.82); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 20px; position: relative; overflow:hidden; } .card::before{ content:""; position:absolute; inset:-1px; background: radial-gradient(520px 320px at 20% 0%, rgba(0,105,255,.18), transparent 62%), radial-gradient(420px 280px at 90% 20%, rgba(0,105,255,.10), transparent 60%); opacity:.9; pointer-events:none; } .card > *{ position: relative; } .mini-title{ font-weight:900; letter-spacing:-0.02em; margin: 0 0 8px; font-size: 18px; } .fine{ margin:0; color:var(--muted); font-size: 13px; line-height: 1.7; } .bullets{ margin-top: 14px; display:grid; gap:10px; } .bullet{ display:flex; gap:12px; align-items:flex-start; padding: 12px; border-radius: 16px; border:1px solid var(--border); background: rgba(255,255,255,.88); } .icon{ width: 34px; height: 34px; border-radius: 12px; background: rgba(0,105,255,.12); border: 1px solid rgba(0,105,255,.18); display:flex; align-items:center; justify-content:center; color: #0b3d91; flex: 0 0 auto; } .bullet b{ display:block; font-weight:900; letter-spacing:-0.01em; margin-bottom: 2px; } .bullet span{ color: var(--muted); font-size: 13.5px; line-height: 1.6; } .shimmer{ height: 1px; width: 100%; margin-top: 18px; background: linear-gradient(90deg, transparent, rgba(0,105,255,.45), transparent); opacity: .8; position: relative; overflow:hidden; border-radius: 999px; } .shimmer::after{ content:""; position:absolute; inset:0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.9), transparent); transform: translateX(-100%); animation: shimmer 2.4s ease-in-out infinite; opacity:.9; } @keyframes shimmer{ 0%{ transform: translateX(-100%); } 55%{ transform: translateX(100%); } 100%{ transform: translateX(100%); } } .reveal{ opacity:0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; } .reveal.visible{ opacity:1; transform: translateY(0); } footer{ position: relative; z-index: 1; padding: 16px 0 26px; color: var(--muted); font-size: 12.5px; } .footer-row{ display:flex; gap:12px; flex-wrap: wrap; align-items:center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px; } </style></head><body><div class="grid-bg" aria-hidden="true"></div><header class="nav"><div class="container"><div class="nav-inner"><a class="brand" href="#" aria-label="ScriptForce home"><span class="dot" aria-hidden="true"></span><span>ScriptForce</span></a><div class="nav-links"><a class="pill" href="#status">Status</a><a class="pill" href="#contact">Contact</a><a class="btn" href="#contact">Notify me</a></div></div></div></header><main><div class="container"><div class="hero"><section class="reveal" aria-label="Coming soon message"><div class="kicker">Coming soon</div><h1>We’ll be online soon.</h1><p class="subtitle"> ScriptForce is getting ready. We’re building a clean, fast experience focused on reliability and modern web delivery. </p><div class="actions"><a class="btn" href="#contact">Get notified</a><a class="ghost" href="#status">What we’re building</a></div><div class="shimmer" aria-hidden="true"></div><p class="fine" style="margin-top:14px;"> Tip: If you came for the old page, it’s being replaced — same domain, better experience. </p></section><aside class="card reveal" id="status" aria-label="What to expect"><h2 class="mini-title">What to expect</h2><p class="fine"> A simple site at first — then we’ll roll out more sections as we ship. </p><div class="bullets"><div class="bullet"><div class="icon" aria-hidden="true">⚡</div><div><b>Fast</b><span>Optimized load time, lightweight assets, clean structure.</span></div></div><div class="bullet"><div class="icon" aria-hidden="true">🛡️</div><div><b>Reliable</b><span>Stable deployments, best practices, and solid monitoring.</span></div></div><div class="bullet"><div class="icon" aria-hidden="true">🧩</div><div><b>Modern</b><span>Clear UI, mobile-first layout, and a developer-friendly stack.</span></div></div></div></aside></div><section id="contact" class="reveal" style="margin-top: 22px;"><div class="card" aria-label="Contact card"><h2 class="mini-title">Want a heads-up?</h2><p class="fine">Email me and I’ll let you know when ScriptForce is live.</p><div class="actions" style="margin-top: 14px;"><a class="btn" href="mailto:jonathan@scriptforce.dev?subject=Notify%20me%20when%20ScriptForce%20is%20live"> Email me </a><a class="ghost" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></div><p class="fine" style="margin-top:12px;"> Prefer no email? Bookmark this page — it’ll update automatically. </p></div></section></div></main><footer><div class="container"><div class="footer-row"><div>© <span id="year"></span> ScriptForce</div><div>Clean · Modern · Blue</div></div></div></footer><script> document.getElementById('year').textContent = new Date().getFullYear(); document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', (e) => { const href = a.getAttribute('href'); if (!href || href === '#') return; const el = document.querySelector(href); if (!el) return; e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); history.replaceState(null, '', href); }); }); const io = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.12 }); document.querySelectorAll('.reveal').forEach(el => io.observe(el)); </script></body></html>
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Desarrollamos software web y móvil a la medida: automatización, dashboards e integraciones. Entregas por fases, listo para producción. Respuesta en menos de 24 horas.">
+
+    <meta name="author" content="www.scriptforce.dev" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://scriptforce.dev/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Script Force | Software a la medida (Web y Apps)">
+    <meta property="og:description"
+        content="Automatización, dashboards, integraciones y apps móviles. Entregas por fases, listo para producción.">
+    <meta property="og:url" content="https://scriptforce.dev/">
+    <meta property="og:image" content="https://scriptforce.dev/assets/images/og-cover.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Script Force | Software a la medida">
+    <meta name="twitter:description" content="Web y móvil: automatización, dashboards e integraciones.">
+    <meta name="twitter:image" content="https://scriptforce.dev/assets/images/og-cover.jpg">
+
+
+    <!-- Title -->
+    <title>Script Force | Desarrollo de software a la medida (Web y Apps)</title>
+
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+
+    <!-- inject css start -->
+
+    <!--== bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!--== animate -->
+    <link href="assets/css/animate.css" rel="stylesheet" type="text/css" />
+
+    <!--== line-awesome -->
+    <link href="assets/css/line-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!--== themify-icons -->
+    <link href="assets/css/themify-icons.css" rel="stylesheet" type="text/css" />
+
+    <!--== magnific-popup -->
+    <link href="assets/css/magnific-popup.css" rel="stylesheet" type="text/css" />
+
+    <!--== owl.carousel -->
+    <link href="assets/css/owl.carousel.css" rel="stylesheet" type="text/css" />
+
+    <!--== lightslider -->
+    <link href="assets/css/lightslider.min.css" rel="stylesheet" type="text/css" />
+
+    <!--== spacing -->
+    <link href="assets/css/spacing.css" rel="stylesheet" type="text/css" />
+
+    <!--== theme.min -->
+    <link href="assets/css/theme.min.css" rel="stylesheet" />
+
+    <!-- inject css end -->
+
+</head>
+
+<body>
+
+    <!-- page wrapper start -->
+
+    <div class="page-wrapper">
+
+        <!-- preloader start -->
+
+        <div id="ht-preloader">
+            <div class="loader clear-loader">
+                <span></span>
+                <p>BootsLand</p>
+            </div>
+        </div>
+
+        <!-- preloader end -->
+
+        <!--header start-->
+
+        <header class="site-header navbar-dark">
+            <div id="header-wrap" class="position-absolute w-100 z-index-1">
+                <div class="container">
+                    <div class="row">
+                        <!--menu start-->
+                        <div class="col">
+                            <nav class="navbar navbar-expand-lg">
+                                <a class="navbar-brand logo text-white h2 mb-0" href="index.html">
+                                    <img class="img-fluid" src="assets/images/logos/white.png" alt="">
+                                    Script<span class="text-white fw-bold">Force.</span>
+                                </a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                    <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item dropdown"> <a class="nav-link active"
+                                                href="#servicios">Servicios</a>
+                                        </li>
+                                        <li class="nav-item dropdown"> <a class="nav-link active"
+                                                href="#proyectos">Proyectos</a>
+                                        </li>
+                                        <li class="nav-item dropdown"> <a class="nav-link active"
+                                                href="#proceso">Proceso</a>
+                                        </li>
+                                        <li class="nav-item dropdown"> <a class="nav-link active"
+                                                href="#nosotros">Nosotros</a>
+                                        </li>
+                                        <li class="nav-item dropdown"> <a class="nav-link active"
+                                                href="#contacto">Contacto</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <!--menu end-->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--header end-->
+
+
+        <!--hero section start-->
+
+        <section class="custom-pt-1 custom-pb-2 bg-primary position-relative overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <!-- Copy -->
+                    <div class="col-12 col-lg-7 col-xl-6 order-2 order-lg-1">
+                        <h1 class="display-4 text-white mt-3 lh-1">
+                            Desarrollamos software web y móvil
+                            <span class="fw-bold d-block mt-3 mb-3">a la medida, listo para producción.</span>
+                        </h1>
+
+                        <p class="lead text-light mb-4">
+                            En Script Force convertimos ideas en plataformas robustas y escalables:
+                            automatización de procesos, dashboards, integraciones y apps móviles.
+                        </p>
+
+                        <!-- Value props -->
+                        <div class="d-flex flex-column gap-2 mb-4">
+                            <div class="d-flex align-items-start gap-2 text-light">
+                                <span class="fw-bold">✓</span>
+                                <span>Arquitectura sólida y mantenimiento real (no “proyectos desechables”).</span>
+                            </div>
+                            <div class="d-flex align-items-start gap-2 text-light">
+                                <span class="fw-bold">✓</span>
+                                <span>Entregas por etapas con avances visibles cada semana.</span>
+                            </div>
+                            <div class="d-flex align-items-start gap-2 text-light">
+                                <span class="fw-bold">✓</span>
+                                <span>Seguridad, performance y despliegue listos para escalar.</span>
+                            </div>
+                        </div>
+
+                        <!-- CTAs -->
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#contacto" class="btn btn-light">
+                                Agendar llamada
+                            </a>
+                            <a href="#proyectos" class="btn btn-outline-light">
+                                Ver proyectos
+                            </a>
+                        </div>
+
+                        <!-- Trust line -->
+                        <p class="text-light opacity-75 mt-3 mb-0" style="font-size:.95rem;">
+                            Respuesta en menos de 24 horas • Trabajo remoto • México / LATAM
+                        </p>
+                    </div>
+
+                    <!-- Image -->
+                    <div class="col-12 col-lg-5 col-xl-6 order-1 order-lg-2">
+                        <div class="position-relative">
+                            <img src="assets/images/hero/office.jpg" class="img-fluid rounded-4 shadow-lg"
+                                alt="Equipo de Script Force trabajando en una solución de software" loading="eager" />
+                            <!-- subtle overlay to blend with bg -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100 rounded-4"
+                                style="background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.08));">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shape-1 bottom" style="height: 100px;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" preserveAspectRatio="none"
+                    class="w-100 h-100">
+                    <circle fill="white" cx="0" cy="100" r="100" />
+                    <circle fill="white" cx="200" cy="100" r="100" />
+                </svg>
+            </div>
+        </section>
+
+        <!--hero section end-->
+
+
+        <!--body content start-->
+
+        <div class="page-content">
+
+
+            <!--portfolio start-->
+            <section id="servicios">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="portfolio-filter">
+                                <button data-filter="" class="is-checked mb-3 mb-sm-0">Todos</button>
+                                <button data-filter=".cat1" class="mb-3 mb-sm-0">Web Apps</button>
+                                <button data-filter=".cat2" class="mb-3 mb-sm-0">Mobile Apps</button>
+                                <button data-filter=".cat3" class="mb-3 mb-sm-0">Dashboards</button>
+                                <button data-filter=".cat4">Integraciones</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="grid columns-3 row popup-gallery">
+                                <div class="grid-sizer"></div>
+
+                                <!-- 01 - Web Apps -->
+                                <div class="grid-item col-lg-4 col-md-6 mb-5 cat1">
+                                    <div class="portfolio-item position-relative overflow-hidden">
+                                        <img class="img-fluid w-100" src="assets/images/portfolio/webapps.webp" alt="">
+                                        <div class="portfolio-title d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small class="text-light mb-2">Web App</small>
+                                                <h6>
+                                                    <a class="btn-link text-white" href="#contacto">Plataformas y
+                                                        sistemas a medida</a>
+                                                </h6>
+                                            </div>
+                                            <a class="popup-img h2 text-white"
+                                                href="assets/images/portfolio/webapps.webp">
+                                                <i class="la la-plus"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 02 - Mobile Apps -->
+                                <div class="grid-item col-lg-4 col-md-6 mb-5 cat2">
+                                    <div class="portfolio-item position-relative overflow-hidden">
+                                        <img class="img-fluid w-100" src="assets/images/portfolio/apps.jpeg" alt="">
+                                        <div class="portfolio-title d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small class="text-light mb-2">Mobile App</small>
+                                                <h6>
+                                                    <a class="btn-link text-white" href="#contacto">Apps listas para
+                                                        producción</a>
+                                                </h6>
+                                            </div>
+                                            <a class="popup-img h2 text-white" href="assets/images/portfolio/apps.jpeg">
+                                                <i class="la la-plus"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 03 - Dashboards -->
+                                <div class="grid-item col-lg-4 col-md-6 mb-5 cat3">
+                                    <div class="portfolio-item position-relative overflow-hidden">
+                                        <img class="img-fluid w-100" src="assets/images/portfolio/dashboard.jpeg"
+                                            alt="">
+                                        <div class="portfolio-title d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small class="text-light mb-2">Dashboard • Reportes</small>
+                                                <h6>
+                                                    <a class="btn-link text-white" href="#contacto">KPIs y reportes
+                                                        ejecutivos</a>
+                                                </h6>
+                                            </div>
+                                            <a class="popup-img h2 text-white"
+                                                href="assets/images/portfolio/dashboard.jpeg">
+                                                <i class="la la-plus"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 04 - Integraciones -->
+                                <div class="grid-item col-lg-4 col-md-6 mb-5 cat4">
+                                    <div class="portfolio-item position-relative overflow-hidden">
+                                        <img class="img-fluid w-100" src="assets/images/portfolio/api.jpeg" alt="">
+                                        <div class="portfolio-title d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small class="text-light mb-2">Integraciones</small>
+                                                <h6>
+                                                    <a class="btn-link text-white" href="#contacto">APIs, pagos y
+                                                        automatización</a>
+                                                </h6>
+                                            </div>
+                                            <a class="popup-img h2 text-white" href="assets/images/portfolio/api.jpeg">
+                                                <i class="la la-plus"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--portfolio end-->
+
+            <!--proyectos start-->
+            <section id="proyectos" class="custom-pt-1 custom-pb-3 bg-dark position-relative"
+                data-bg-img="assets/images/bg/02.png"
+                style="background-image: url(&quot;assets/images/bg/02.png&quot;);">
+                <div class="container">
+                    <div class="row align-items-end">
+                        <div class="col-lg-4 col-md-6 mb-8 mb-lg-0 text-white">
+                            <div>
+                                <span class="badge badge-primary-soft p-2">
+                                    <i class="la la-cubes ic-3x rotation"></i>
+                                </span>
+                                <h2 class="mt-3 mb-0">Proyectos confidenciales, impacto real</h2>
+                                <p class="text-light mt-3 mb-0">
+                                    Desarrollamos plataformas web y móviles a la medida. Estos casos resumen el tipo de
+                                    soluciones que entregamos bajo NDA.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 1) Pensión Mod40 -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="bg-primary-soft rounded p-5">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="me-3">
+                                        <img class="img-fluid" src="assets/images/icon/01.svg" alt="">
+                                    </div>
+                                    <h5 class="m-0 text-light">Pensión Mod. 40</h5>
+                                </div>
+                                <p class="mb-0">
+                                    Web app que automatiza la lectura del PDF del IMSS y genera escenarios de pensión
+                                    según fecha de jubilación y estatus del asegurado.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 2) Nómina + Asistencias -->
+                        <div class="col-lg-4 col-md-6 mt-6 mt-md-0">
+                            <div class="bg-primary-soft rounded p-5">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="me-3">
+                                        <img class="img-fluid" src="assets/images/icon/02.svg" alt="">
+                                    </div>
+                                    <h5 class="m-0 text-light">Nómina y Asistencias</h5>
+                                </div>
+                                <p class="mb-0">
+                                    Plataforma multiempresa con timbrado, KPIs de RH y app móvil para asistencia,
+                                    integrada con checadores biométricos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 3) Logística de transporte -->
+                        <div class="col-lg-4 col-md-6 mt-6">
+                            <div class="bg-primary-soft rounded p-5">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="me-3">
+                                        <img class="img-fluid" src="assets/images/icon/03.svg" alt="">
+                                    </div>
+                                    <h5 class="m-0 text-light">Transporte Empresarial</h5>
+                                </div>
+                                <p class="mb-0">
+                                    App móvil y web para control de rutas y abordajes, registro de subidas/bajadas y
+                                    trazabilidad operativa para mayor seguridad.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 4) Inversión -->
+                        <div class="col-lg-4 col-md-6 mt-6">
+                            <div class="bg-primary-soft rounded p-5">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="me-3">
+                                        <img class="img-fluid" src="assets/images/icon/04.svg" alt="">
+                                    </div>
+                                    <h5 class="m-0 text-light">Gestión de Inversión</h5>
+                                </div>
+                                <p class="mb-0">
+                                    Plataforma web para control documental y seguimiento de inversiones inmobiliarias,
+                                    con flujo de solicitudes y reinversiones.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Opcional: si quieres 5 tarjetas, esta es una “extra” genérica -->
+                        <div class="col-lg-4 col-md-6 mt-6">
+                            <div class="bg-primary-soft rounded p-5">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="me-3">
+                                        <img class="img-fluid" src="assets/images/icon/05.svg" alt="">
+                                    </div>
+                                    <h5 class="m-0 text-light">Integraciones y Automatización</h5>
+                                </div>
+                                <p class="mb-0">
+                                    Integramos APIs, pagos y procesos internos para eliminar trabajo manual y conectar
+                                    sistemas sin fricción.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="shape-1" style="height: 150px; overflow: hidden;">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                        <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"
+                            style="stroke: none; fill: #fff;"></path>
+                    </svg>
+                </div>
+                <div class="shape-1 bottom" style="height: 200px; overflow: hidden;">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                        <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                            style="stroke: none; fill: #fff;"></path>
+                    </svg>
+                </div>
+            </section>
+            <!--proyectos end-->
+
+
+            <!--proceso start-->
+            <section id="proceso" class="position-relative">
+                <div class="shape-2 transform-md-rotate" style="overflow: hidden;">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                        <path d="M208.09,0.00 C152.70,67.10 262.02,75.98 200.80,150.00 L0.00,150.00 L0.00,0.00 Z"
+                            style="stroke: none; fill: #1360ef;"></path>
+                    </svg>
+                </div>
+
+                <div class="container-fluid z-index-1">
+                    <div class="row align-items-center">
+                        <!-- Left intro -->
+                        <div class="col-12 col-md-12 col-lg-4 mb-6 mb-lg-0">
+                            <div>
+                                <span class="badge badge-light-soft p-2">
+                                    <i class="la la-route ic-3x rotation"></i>
+                                </span>
+                                <h2 class="mt-4 text-white">Proceso de trabajo</h2>
+                                <p class="lead mb-0 text-white">
+                                    Entregas claras, avances visibles y software listo para producción. Trabajamos por
+                                    etapas para reducir riesgo y acelerar resultados.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right steps -->
+                        <div class="col-12 col-md-12 col-lg-8">
+                            <div class="row">
+
+                                <!-- Step 1 -->
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="card p-4 shadow border-0 flex-sm-row h-100">
+                                        <div
+                                            class="w-50 me-sm-5 mb-3 mb-sm-0 d-flex align-items-center justify-content-center">
+                                            <div class="rounded-circle bg-primary-soft d-inline-flex align-items-center justify-content-center"
+                                                style="width:72px;height:72px;">
+                                                <span class="h4 text-primary m-0">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <h5 class="text-primary mb-2">Descubrimiento y alcance</h5>
+                                            <p class="mb-0">
+                                                Definimos objetivos, usuarios y prioridades. Cerramos alcance y
+                                                estimación por fases con un backlog inicial claro.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2 -->
+                                <div class="col-12 col-md-6 col-lg-6 mt-5 mt-md-0">
+                                    <div class="card p-4 shadow border-0 flex-sm-row h-100">
+                                        <div
+                                            class="w-50 me-sm-5 mb-3 mb-sm-0 d-flex align-items-center justify-content-center">
+                                            <div class="rounded-circle bg-primary-soft d-inline-flex align-items-center justify-content-center"
+                                                style="width:72px;height:72px;">
+                                                <span class="h4 text-primary m-0">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <h5 class="text-primary mb-2">Diseño y arquitectura</h5>
+                                            <p class="mb-0">
+                                                Diseñamos flujos, UX/UI (si aplica), arquitectura y modelo de datos.
+                                                Preparamos el plan de sprints y entregables.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3 -->
+                                <div class="col-12 col-md-6 col-lg-6 mt-5">
+                                    <div class="card p-4 shadow border-0 flex-sm-row h-100">
+                                        <div
+                                            class="w-50 me-sm-5 mb-3 mb-sm-0 d-flex align-items-center justify-content-center">
+                                            <div class="rounded-circle bg-primary-soft d-inline-flex align-items-center justify-content-center"
+                                                style="width:72px;height:72px;">
+                                                <span class="h4 text-primary m-0">3</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <h5 class="text-primary mb-2">Desarrollo por sprints</h5>
+                                            <p class="mb-0">
+                                                Construimos por etapas con demos semanales, ambiente de pruebas
+                                                (staging) y seguimiento continuo de avances.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4 -->
+                                <div class="col-12 col-md-6 col-lg-6 mt-5">
+                                    <div class="card p-4 shadow border-0 flex-sm-row h-100">
+                                        <div
+                                            class="w-50 me-sm-5 mb-3 mb-sm-0 d-flex align-items-center justify-content-center">
+                                            <div class="rounded-circle bg-primary-soft d-inline-flex align-items-center justify-content-center"
+                                                style="width:72px;height:72px;">
+                                                <span class="h4 text-primary m-0">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <h5 class="text-primary mb-2">Lanzamiento y mejora continua</h5>
+                                            <p class="mb-0">
+                                                QA, despliegue y monitoreo. Entregamos documentación básica y ofrecemos
+                                                soporte para mejoras post-lanzamiento.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- / .row -->
+                        </div>
+                    </div>
+                    <!-- / .row -->
+                </div>
+            </section>
+
+            <!--proceso end-->
+
+            <!--nosotros start-->
+            <section id="nosotros" class="custom-py-2 position-relative bg-dark parallaxie"
+                data-bg-img="assets/images/bg/02.png"
+                style="background-image: url(&quot;assets/images/bg/02.png&quot;); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center 15px;">
+                <div class="container">
+
+                    <div class="row justify-content-center text-center">
+                        <div class="col-12 col-md-12 col-lg-8 mb-8 mb-lg-0">
+                            <div class="mb-8">
+                                <span class="h6 text-primary">Script Force</span>
+                                <h2 class="mt-3 font-w-5 text-white">Software a la medida, listo para producción</h2>
+                                <p class="lead mb-0 text-white">
+                                    Diseñamos y desarrollamos soluciones web y móviles para empresas que necesitan
+                                    operar mejor, automatizar procesos y escalar con seguridad.
+                                </p>
+
+                                <!-- CTA -->
+                                <div class="mt-5 d-flex justify-content-center flex-wrap gap-2">
+                                    <a href="#contacto" class="btn btn-primary me-2 mb-2">Agendar llamada</a>
+                                    <a href="#proyectos" class="btn btn-outline-light mb-2">Ver proyectos</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / .row -->
+
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="owl-carousel" data-dots="false" data-nav="true" data-items="3" data-md-items="2"
+                                data-sm-items="2" data-margin="30" data-autoplay="true">
+
+                                <!-- Item 1 -->
+                                <div class="item">
+                                    <div class="bg-primary-soft rounded text-center p-5 h-100">
+                                        <div class="mb-3">
+                                            <img class="img-fluid rounded-top d-inline" src="assets/images/team/01.png"
+                                                alt="">
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1 text-light">Entregas por fases</h5>
+                                            <small class="text-primary mb-3 d-block">Avances visibles</small>
+                                            <p class="mb-0">
+                                                Trabajamos por etapas y con demos frecuentes para que siempre sepas qué
+                                                se está construyendo y qué sigue.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Item 2 -->
+                                <div class="item">
+                                    <div class="bg-primary-soft rounded text-center p-5 h-100">
+                                        <div class="mb-3">
+                                            <img class="img-fluid rounded-top d-inline" src="assets/images/team/02.png"
+                                                alt="">
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1 text-light">Arquitectura sólida</h5>
+                                            <small class="text-primary mb-3 d-block">Escalabilidad real</small>
+                                            <p class="mb-0">
+                                                Construimos con base técnica fuerte: performance, seguridad y
+                                                mantenimiento, pensando en crecimiento a largo plazo.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Item 3 -->
+                                <div class="item">
+                                    <div class="bg-primary-soft rounded text-center p-5 h-100">
+                                        <div class="mb-3">
+                                            <img class="img-fluid rounded-top d-inline" src="assets/images/team/03.png"
+                                                alt="">
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1 text-light">Integraciones</h5>
+                                            <small class="text-primary mb-3 d-block">APIs • Pagos •
+                                                Automatización</small>
+                                            <p class="mb-0">
+                                                Conectamos sistemas y eliminamos trabajo manual: integraciones con APIs,
+                                                pagos, servicios externos y procesos internos.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Item 4 -->
+                                <div class="item">
+                                    <div class="bg-primary-soft rounded text-center p-5 h-100">
+                                        <div class="mb-3">
+                                            <img class="img-fluid rounded-top d-inline" src="assets/images/team/02.png"
+                                                alt="">
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1 text-light">Proyectos bajo NDA</h5>
+                                            <small class="text-primary mb-3 d-block">Confidencialidad</small>
+                                            <p class="mb-0">
+                                                Trabajamos con acuerdos de confidencialidad. Podemos compartir detalles
+                                                técnicos y alcance en llamada.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /owl-carousel -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shape-1" style="height: 200px; overflow: hidden;">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                        <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"
+                            style="stroke: none; fill: #fff;"></path>
+                    </svg>
+                </div>
+                <div class="shape-1 bottom" style="height: 200px; overflow: hidden;">
+                    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                        <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                            style="stroke: none; fill: #fff;"></path>
+                    </svg>
+                </div>
+            </section>
+
+            <!--nosotros end-->
+
+            <!--contacto start-->
+            <section id="contacto">
+                <div class="container">
+                    <div class="row justify-content-center text-center mb-5">
+                        <div class="col-12 col-lg-8">
+                            <span class="h6 text-primary">Contacto</span>
+                            <h2 class="mt-3 fw-bold">Hablemos de tu proyecto</h2>
+                            <p class="lead text-muted mb-0">
+                                Cuéntanos qué necesitas y te respondemos en menos de 24 horas con próximos pasos y una
+                                estimación inicial.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row text-center g-4">
+                        <!-- Ubicación -->
+                        <div class="col-lg-4 col-md-12">
+                            <div class="h-100 p-4 rounded bg-white shadow-sm">
+                                <svg class="feather feather-map-pin" xmlns="http://www.w3.org/2000/svg" width="50"
+                                    height="50" viewBox="0 0 24 24" fill="none" stroke="#1360ef" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <h4 class="mt-5">Ubicación</h4>
+                                <span class="text-dark">México • Trabajo remoto (LATAM / USA)</span>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="h-100 p-4 rounded bg-white shadow-sm">
+                                <svg class="feather feather-mail" xmlns="http://www.w3.org/2000/svg" width="50"
+                                    height="50" viewBox="0 0 24 24" fill="none" stroke="#1360ef" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <h4 class="mt-5">Email</h4>
+                                <a href="mailto:contacto@scriptforce.dev">contacto@scriptforce.dev</a>
+                                <div class="text-muted mt-2">Respuesta en menos de 24 horas</div>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="h-100 p-4 rounded bg-white shadow-sm">
+                                <svg class="feather feather-phone-call" xmlns="http://www.w3.org/2000/svg" width="50"
+                                    height="50" viewBox="0 0 24 24" fill="none" stroke="#1360ef" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                                <h4 class="mt-5">WhatsApp</h4>
+                                <a href="https://wa.me/5216142220424?text=Hola%20Script%20Force,%20quiero%20cotizar%20un%20proyecto."
+                                    target="_blank" rel="noopener">
+                                    +52 614 222 0424
+                                </a>
+                                <div class="mt-3">
+                                    <a class="btn btn-primary" href="#form-contacto">Escribir detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </section>
+            <!--contacto end-->
+
+
+
+        </div>
+
+        <!--body content end-->
+
+
+        <!--footer start-->
+
+        <footer class="py-11 bg-primary position-relative" data-bg-img="assets/images/bg/03.png">
+            <div class="shape-1" style="height: 150px; overflow: hidden;">
+                <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"
+                        style="stroke: none; fill: #fff;"></path>
+                </svg>
+            </div>
+
+            <div class="container mt-7">
+                <div class="row">
+                    <div class="col-12 col-lg-12 col-xl-12">
+                        <div class="row">
+
+                            <!-- Brand / CTA -->
+                            <div class="col-12 col-sm-4 navbar-dark">
+                                <h5 class="mb-4 text-white">Script Force</h5>
+                                <p class="text-white-50 mb-4">
+                                    Desarrollo de software a la medida en web y móvil. Entregas por fases, enfoque en
+                                    producción y proyectos bajo NDA.
+                                </p>
+
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a class="btn btn-outline-light btn-sm" href="#contacto">Agendar llamada</a>
+                                    <a class="btn btn-success btn-sm"
+                                        href="https://wa.me/+526142220424?text=Hola%20Script%20Force,%20quiero%20cotizar%20un%20proyecto."
+                                        target="_blank" rel="noopener">
+                                        WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Pages -->
+                            <div class="col-12 col-sm-4 mt-6 mt-sm-0 navbar-dark">
+                                <h5 class="mb-4 text-white">Secciones</h5>
+                                <ul class="navbar-nav list-unstyled mb-0">
+                                    <li class="mb-3 nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                                    <li class="mb-3 nav-item"><a class="nav-link" href="#services">Proyectos</a></li>
+                                    <li class="mb-3 nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                                    <li class="mb-3 nav-item"><a class="nav-link" href="#proceso">Proceso</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Services -->
+                            <div class="col-12 col-sm-4 mt-6 mt-sm-0 navbar-dark">
+                                <h5 class="mb-4 text-white">Servicios</h5>
+                                <ul class="navbar-nav list-unstyled mb-0">
+                                    <li class="mb-3 nav-item"><a class="nav-link" href="#servicios">Desarrollo Web a
+                                            medida</a></li>
+                                    <li class="mb-3 nav-item"><a class="nav-link" href="#servicios">Apps móviles</a>
+                                    </li>
+                                    <li class="mb-3 nav-item"><a class="nav-link" href="#servicios">Dashboards y
+                                            reportes</a></li>
+                                    <li class="mb-3 nav-item"><a class="nav-link" href="#servicios">Integraciones y
+                                            automatización</a></li>
+                                    <li class="nav-item"><span class="nav-link text-white-50">Proyectos bajo NDA</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <!-- Optional: second row for contact/legal (si quieres) -->
+                        <div class="row mt-6">
+                            <div class="col-12 col-sm-4 navbar-dark">
+                                <h6 class="text-white mb-3">Contacto</h6>
+                                <ul class="navbar-nav list-unstyled mb-0">
+                                    <li class="mb-2 nav-item">
+                                        <a class="nav-link"
+                                            href="mailto:contacto@scriptforce.dev">contacto@scriptforce.dev</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="https://wa.me/+526142220424" target="_blank"
+                                            rel="noopener">+52 (XXX) XXX-XXXX</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-12 col-sm-4 mt-6 mt-sm-0 navbar-dark">
+                                <h6 class="text-white mb-3">Legal</h6>
+                                <ul class="navbar-nav list-unstyled mb-0">
+                                    <li class="mb-2 nav-item"><a class="nav-link" href="privacy-policy.html">Aviso de
+                                            Privacidad</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="terms-and-conditions.html">Términos
+                                            del Servicio</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-12 col-sm-4 mt-6 mt-sm-0 navbar-dark">
+                                <h6 class="text-white mb-3">Horario</h6>
+                                <p class="text-white-50 mb-0">Lun–Vie • 9:00 a 18:00 (MX)</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row text-white text-center mt-8">
+                    <div class="col">
+                        <hr class="mb-8">
+                        Copyright 2026 <u><a class="text-white" href="#inicio">Script Force</a></u>
+                        | All Rights Reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <!--footer end-->
+
+    </div>
+
+    <!-- page wrapper end -->
+
+
+    <!--back-to-top start-->
+
+    <div class="scroll-top"><a class="smoothscroll" href="#top"><i class="las la-angle-up"></i></a></div>
+
+    <!--back-to-top end-->
+
+    <!-- inject js start -->
+
+    <script src="assets/js/theme-plugin.js"></script>
+    <script src="assets/js/theme-script.js"></script>
+
+    <!-- inject js end -->
+
+</body>
+
+</html>
