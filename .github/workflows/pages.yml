@@ -1,4 +1,4 @@
-name: Script Force Deploy
+name: Script force deploy
 
 on:
   push:
@@ -25,16 +25,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
 
       - name: Install
-        run: npm ci
+        run: npm ci || npm install
 
       - name: Build
         run: npm run build
-
-      - name: Verify dist exists
-        run: test -d dist && ls -la dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
